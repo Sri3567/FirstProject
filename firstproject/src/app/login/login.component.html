@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="mb-3">
+        <label for="name">Name</label>
+        <input type="text" name="name" [formControl]="name">
+        <input type="submit" value="Save" (click)="onSave()">
+    </div>
+    <h2>Login Here</h2>
+    // #username="ngModel"
+    <form (ngSubmit)="onLogin()" [formGroup]="loginform">
+        <div class="mb-3">
+            <label for="name">Username </label>
+            <input type="text" name="name" formControlName="username"
+            class="form-control">
+            <div class="alert alert-danger"
+             [hidden]="username.valid || username.untouched">
+                <span *ngIf="username.errors?.['required']">
+                    Please Enter you Email id
+                </span>
+                <span *ngIf="username.errors?.['email']">
+                    Please Enter Valid Email id
+                </span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password">Password </label>
+            <input type="password" name="password" 
+            formControlName="password"
+            class="form-control">
+            <div class="alert alert-danger"
+            [hidden]="password.valid || password.untouched">
+                <span *ngIf="password.errors?.['required']">
+                    Please Enter you Password
+                </span>
+                <span *ngIf="password.errors?.['pattern']">
+                    Password must be start with Capital Letter,
+                    & it must be contain minimum 5 and maxmimum 8 letters.
+                </span>
+           </div>
+        </div>
+        <input type="submit" value="Login" class="btn btn-outline-success"/>
+    </form>
+</div>
+    

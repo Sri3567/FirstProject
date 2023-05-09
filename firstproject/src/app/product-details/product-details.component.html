@@ -1,0 +1,25 @@
+<div class="container">
+    <!-- here async is built-in pipe of anuglar api 
+         It is used to subscribe the observable with writing code. 
+        
+        here as is used specify the value which reterive by the async.    
+        -->
+    <div *ngIf="product$|async as product">
+       <h1>Product Details</h1>
+       <div class="row">
+            <div class="col-md-6">
+                <img  [src]="product.productImage" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-6">
+                <h3 class="text-center"> {{product.productName}}</h3>
+                <p> Product Price  {{product.productPrice|currency:"INR"}}</p>
+                <p> Product Date  {{product.productDate|date:"longDate"}}</p>
+                <p>{{product.productDiscount/100|percent}}</p>
+                <app-star [rating]="product.productRating"></app-star>
+            </div>
+       </div>
+       <div class="row">
+            <app-product-review-form [pId]="product.id"></app-product-review-form>
+       </div>
+    </div>
+</div>

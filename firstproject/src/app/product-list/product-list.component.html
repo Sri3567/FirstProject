@@ -1,0 +1,30 @@
+<div class="container">
+    <!-- {{productlist|json}} -->
+    <div *ngIf="productlist.length>0">
+       <div class="row">
+            <div class="col my-1" *ngFor="let product of productlist">
+                <div class="card" >
+                    <img [ngClass]="cssClass" [src]="product.productImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 defaultSize="20px" appZoom="30px"  class="card-title">{{product.productName|titlecase|uppercase}}</h5>
+                      <p [ngClass]="cssPrice" class="card-text">{{product.productPrice|currency:"INR"}}</p>
+                      
+                      <p defaultSize="12px" appZoom="18px"  class="card-text">{{product.productDiscount}}% discount
+                        {{product.productPrice|discount:product.productDiscount|currency:"INR"}}</p>
+                      <p class="card-text">{{product.productDate|date:"longDate"}}</p>
+                      
+                      <p >
+                        <app-star [rating]="product.productRating" (ratingEmitter)="show($event)"></app-star>
+                      </p> 
+                      <a (click)="onDelete(product.id)" class="btn btn-danger m-1"><i class="bi bi-trash-fill"></i></a>
+                      <a (click)="onAddToCart()" class="btn btn-primary m-1"><i class="bi bi-cart-plus-fill"></i></a>
+                      <a [routerLink]="['/product','details',product.id]" class="btn btn-primary m-1"><i class="bi bi-eye-fill"></i></a>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+    <div *ngIf="productlist.length==0">
+        Product List is Empty. 
+    </div>
+</div>

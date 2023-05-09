@@ -1,0 +1,49 @@
+{
+  "products": [
+    {
+      "Id": 1013,
+      "productName": "oppo pro",
+      "productPrice": 30000,
+      "productDate": "2023-03-11",
+      "productDiscount": 10,
+      "productRating": 4,
+      "productImage": "assets/product-img/oppo.png"
+    },
+    {
+      "id": 1013,
+      "productName": "oppo pro1",
+      "productPrice": 35000,
+      "productDate": "2023-03-12",
+      "productDiscount": 10,
+      "productRating": 4.5,
+      "productImage": "assets/product-img/oppo.png"
+    },
+    {
+      "id": 1014,
+      "productName": "oppo pro",
+      "productPrice": 30000,
+      "productDate": "2023-03-11",
+      "productDiscount": 10,
+      "productRating": 4,
+      "productImage": "assets/product-img/oppo.png"
+    },
+    {
+      "id": 1016,
+      "productName": "Samsung",
+      "productPrice": 50000,
+      "productDate": "2023-03-11",
+      "productDiscount": 6,
+      "productRating": 4,
+      "productImage": "assets/product-img/oppo.png"
+    },
+    {
+      "productName": "Samsung",
+      "productPrice": 60000,
+      "productDate": "2023-03-11",
+      "productDiscount": 10,
+      "productRating": 4.3,
+      "productImage": "assets/product-img/oppo.png",
+      "id": 1017
+    }
+  ]
+}

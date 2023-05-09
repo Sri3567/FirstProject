@@ -1,0 +1,43 @@
+<div class="container mb-5">
+    <form (ngSubmit)="onSubmit()" #reviewform="ngForm">
+        <div class="mb-3">
+            <label for="productId" class="form-label"> Proudct Id</label>
+            <input type="number" id="productId" class="form-control"
+            [(ngModel)]="productreview.productId" name="productId" 
+            required
+            pattern="^[0-9]{3,5}$"
+            #pId="ngModel" readonly>
+            <div class="alert alert-danger" 
+            [hidden]="pId.valid || pId.untouched">
+                    <span [hidden]="!pId.errors?.['required']">Please Enter product id</span>
+                    <span [hidden]="!pId.errors?.['pattern']">Product Id must be 3 to 5 digits</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="customerEmail" class="form-label"> Customer Email</label>
+            <input type="email" id="customerEmail" class="form-control"
+            [(ngModel)]="productreview.customerEmail" name="customerEmail"
+            #cmail="ngModel"
+            required
+            pattern="^[a-zA-Z0-9._]{3,5}@[a-z]{2,5}\.[a-z]{2,3}$">
+            <div class="alert alert-danger" 
+            [hidden]="cmail.valid || cmail.untouched">
+                    <span [hidden]="!cmail.errors?.['required']">Please Enter Your Email Id</span>
+                    <span [hidden]="!cmail.errors?.['pattern']">Please enter valid Email Id</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="proudctRating" class="form-label"> Rating</label>
+            <input type="range" id="proudctRating" class="form-control"
+             min="0" max="5" value="2"
+             [(ngModel)]="productreview.proudctRating" name="proudctRating">
+        </div>
+        <div class="mb-3">
+            <label for="proudctComment" class="form-label">Comment</label>
+            <textarea type="range" id="proudctComment" class="form-control"
+             rows="3" [(ngModel)]="productreview.proudctComment" name="proudctComment"></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-outline-success"
+        [disabled]="reviewform.invalid">
+    </form>
+</div>
